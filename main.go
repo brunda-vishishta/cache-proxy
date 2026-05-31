@@ -18,6 +18,7 @@ func main() {
 	flag.Parse()
 
 	proxy := proxy.NewProxy("http://example.com", *cacheSize)
+	defer proxy.Close() // Close the database when the program exits
 
 	if *clearCache {
 		proxy.ClearCache()
